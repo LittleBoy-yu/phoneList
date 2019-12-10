@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    @keyframes displayed{
+    from{
+        height: 0;
+    }
+    to{
+        height: 115px;
+    }
+}
+.commidty{
+    overflow: hidden;
+    animation: 1s displayed;
+}</style>
+</head>
+
+<body>
+    <div ng-app="app" class="view-container" ng-controller="pCtrl">
+        <div class="col-sm-2 ">
+            <p>Seacrch:<br>
+                <input type="text" ng-model="text"</p>
+            <p>Sort by:
+                <select ng-model="fileld">
+                    <option value="name">Alphabetical</option>
+                    <option value="age">Newest</option>
+                </select>
+            </p>
+        </div>
+        <ul class="col-sm-8  pList_ul" >
+            <li ng-repeat="item in pList |orderBy:fileld | filter:{name:text}" class="commidty">
+                <a href="" class="imgs"><img ng-src="/static/img/phones/{{item.imageUrl}}" alt=""></a>
+               <span><a href="#!/Delites/{{item.id}}">{{item.name}}</a>
+                <p>{{item.snippet}}</p></span>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

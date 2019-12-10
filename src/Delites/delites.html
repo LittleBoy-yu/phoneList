@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="app" class="view-container" ng-controller="cCtrl">
+    <div class="top">
+        <ul class="delitesList_ul">
+            <li><img ng-repeat="item in imgs" ng-src="/static/{{item}}" ng-show="selectImg==item" alt="" class="pic" ng-class="selectImg==item?'enter': 'leave'"></li>
+            
+            </li>
+        </ul>
+        <ul class="delitesList_ul2">
+            <li>
+                <h1>{{delitesList.name}}</h1>
+            </li>
+            <li>{{delitesList.description}}</li>
+            <li class="changeImages">
+                    <img ng-repeat="(index,item) in imgs" ng-src="/static/{{item}}" alt="" class="mini" ng-click="setImage(index)">
+            </li>
+        </ul>
+    </div>
+    <ul class="delitesList_ul3">
+        <li class="col-sm-1">
+            <span>Availability and Networks</span>
+            <dl>
+                <dt>Availability</dt>
+                <dd ng-repeat="item in delitesList.availability">{{item}}</dd>
+            </dl>
+        </li>
+        <li class="col-sm-2">
+            <span>Battery</span>
+            <dl>
+                <dt>Type</dt>
+                <dd>{{delitesList.battery.type}}</dd>
+                <dt>Talk Time</dt>
+                <dd>{{delitesList.battery.talkTime}}</dd>
+                <dt>Standby time (max)</dt>
+                <dd>{{delitesList.battery.standbyTime}}</dd>
+            </dl>
+        </li>
+        <li class="col-sm-2">
+            <span>Storage and Memory</span>
+            <dl>
+                <dt>RAM</dt>
+                <dd>{{delitesList.storage.ram}}</dd>
+                <dt>Internal Storage</dt>
+                <dd>{{delitesList.storage.flash}}</dd>
+            </dl>
+        </li>
+        <li class="col-sm-2">
+            <span>Connectivity</span>
+            <dl>
+                <dt>Network Support</dt>
+                <dd>{{delitesList.connectivity.cell}}</dd>
+                <dt>WiFi</dt>
+                <dd>{{delitesList.connectivity.wifi}}</dd>
+                <dt>Bluetooth</dt>
+                <dd>{{delitesList.connectivity.bluetooth}}</dd>
+                <dt>Infrared</dt>
+                <dd>{{delitesList.connectivity.infrared?'√':'×'}}</dd>
+                <dt>GPS</dt>
+                <dd>{{delitesList.connectivity.gps?'√':'×'}}</dd>
+            </dl>
+        </li>
+        <li class="col-sm-1">
+            <span>Android</span>
+            <dl>
+                <dt>OS Version</dt>
+                <dd>{{delitesList.android.os}}</dd>
+                <dt>UI</dt>
+                <dd>{{delitesList.android.ui}}</dd>
+            </dl>
+        </li>
+        <li class="col-sm-2">
+            <span> Size and Weight</span>
+            <dl>
+                <dt>Dimensions</dt>
+                <dd ng-repeat="item in delitesList.sizeAndWeight.dimensions">{{item}}</dd>
+                <dt>Weight</dt>
+                <dd>{{delitesList.sizeAndWeight.weight}}</dd>
+            </dl>
+        </li>
+        <li class="col-sm-2">
+            <span>Display</span>
+            <dt>Screen size</dt>
+            <dd></dd>
+            <dt>Screen resolution</dt>
+            <dd>{{delitesList.display.screenResolution}}</dd>
+            <dt>Touch screen</dt>
+            <dd>{{delitesList.display.touchScreen?'√':'×'}}</dd>
+        </li>
+    </ul>
+    <ul class="delitesList_ul3">
+        <li class="col-sm-2">
+            <span>Hardware</span>
+            <dl>
+                <dt>CPU</dt>
+                <dd>{{delitesList.hardware.cpu}}</dd>
+                <dt>USB</dt>
+                <dd>{{delitesList.hardware.usb}}</dd>
+                <dt>Audio / headphone jack</dt>
+                <dd>{{delitesList.hardware.audioJack}}</dd>
+                <dt>FM Radio</dt>
+                <dd>{{delitesList.hardware.fmRadio?'√':'×'}}</dd>
+                <dt>Accelerometer</dt>
+                <dd>{{delitesList.hardware.physicalKeyboard?'√':'×'}}</dd>
+            </dl>
+        </li>
+        <li class="col-sm-2">
+            <span>Camera</span>
+            <dl>
+                <dt>Primary</dt>
+                <dd>{{delitesList.camera.primary}}</dd>
+                <dt>Features</dt>
+                <dd><b ng-repeat="item in delitesList.camera.features">{{item}}&emsp;</b></dd>
+            </dl>
+        </li>
+        <li class="col-sm-2" style="clear: right">
+            <span>Additional Features</span>
+            <br>
+                <b>{{delitesList.additionalFeatures}}</b>
+            
+        </li>
+    </ul>
+</body>
+
+</html>
